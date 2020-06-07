@@ -26,6 +26,8 @@ VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = true
   config.filter_sensitive_data('<WEATHER-API-KEY>') {ENV['WEATHER_API_KEY']}
   config.filter_sensitive_data('<GEO-LOC-API-KEY>') {ENV['GEOLOC_API_KEY']}
+  config.filter_sensitive_data('<UNSPLASH-API-KEY>') {ENV['UNSPLASH_API_KEY']}
+  config.filter_sensitive_data('<UNSPLASH-SECRET>') {ENV['UNSPLASH_SECRET']}
 end
 
 SimpleCov.start 'rails'

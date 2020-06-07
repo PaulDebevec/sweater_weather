@@ -15,6 +15,19 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
+require 'vcr'
+require 'webmock/rspec'
+
+VCR.configure do |config|
+  # config.ignore_localhost = true
+  config.cassette_library_dir = 'spec/cassettes'
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = true
+  config.filter_sensitive_data('<WEATHER-API-KEY>') {ENV['WEATHER_API_KEY']}
+  config.filter_sensitive_data('<GEO-LOC-API-KEY>') {ENV['GEOLOC_API_KEY']}
+end
+
 SimpleCov.start 'rails'
 
 SimpleCov.start do

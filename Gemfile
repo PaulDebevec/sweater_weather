@@ -12,8 +12,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'json'
 gem 'faraday'
 gem 'figaro'
+gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -30,12 +32,11 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  # gem 'travis'
 end
 
-# group :test do
-#   gem 'webmock'
-#   gem 'vcr'
-# end
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

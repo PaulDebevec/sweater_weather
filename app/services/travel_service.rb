@@ -1,5 +1,5 @@
 class TravelService
-  def self.get_dest_info(start, destination)
+  def self.get_travel_info(start, destination)
     request = conn.get('/maps/api/directions/json?') do |r|
       r.params['origin'] = start
       r.params['destination'] = destination

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Zomato API' do
   it 'sends a restaurant near the destination of travel', :vcr do
-
     get '/api/v1/foodie?start=denver,co&end=pueblo,co&search=italian'
 
     expect(response).to be_successful

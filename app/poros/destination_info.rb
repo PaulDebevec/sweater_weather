@@ -5,7 +5,7 @@ class DestinationInfo
     @id = 'id'
     @end_location = travel_info[:end_address]
     @travel_time = travel_info[:duration][:text]
-    @forecast = {summary: weather[:current][:weather][0][:description], temperature: weather[:current][:temp].round}
-    @restaurant = {name: restaurant_info[:restaurants].pop[:restaurant][:name], address: restaurant_info[:restaurants].pop[:restaurant][:location][:address]}
+    @forecast = DestinationForecast.new(weather)
+    @restaurant = DestinationRestaurant.new(restaurant_info)
   end
 end

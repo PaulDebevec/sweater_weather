@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Forecast API' do
-
   it 'sends weather forecast for location', :vcr do
 
     get '/api/v1/forecast?location=berthoud,colorado'

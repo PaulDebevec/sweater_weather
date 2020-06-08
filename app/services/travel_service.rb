@@ -4,7 +4,7 @@ class TravelService
       r.params['origin'] = start
       r.params['destination'] = destination
       r.params['units'] = 'imperial'
-      r.params['key'] = ENV['GEOLOC_API_KEY']
+      r.params['key'] = ENV['GOOGLE_API_KEY']
     end
     json = JSON.parse(request.body, symbolize_names: true)
     json[:routes][0][:legs][0]

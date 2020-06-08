@@ -1,4 +1,4 @@
 class DestinationInfoSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :end_location, :travel_time, :forecast, :restaurant, :id
+  attributes :end_location, :travel_time, :forecast, :restaurant
 end

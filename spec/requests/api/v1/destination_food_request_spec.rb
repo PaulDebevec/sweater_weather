@@ -9,9 +9,11 @@ RSpec.describe 'Zomato API' do
     json = JSON.parse(response.body, symbolize_names: true)
     expect(response.status).to eq(200)
 
-    expect(json[:data][:attributes].keys.include?(:url)).to eq(true)
-    expect(json[:data].keys.include?(:id)).to eq(true)
-    expect(json[:data].keys.include?(:type)).to eq(true)
-    expect(json[:data][:type]).to eq("backgrounds")
+    expect(json[:data][:attributes].keys.include?(:end_location)).to eq(true)
+    expect(json[:data][:attributes].keys.include?(:travel_time)).to eq(true)
+    expect(json[:data][:attributes][:forecast].keys.include?(:summary)).to eq(true)
+    expect(json[:data][:attributes][:forecast].keys.include?(:temperature)).to eq(true)
+    expect(json[:data][:attributes][:restaurant].keys.include?(:name)).to eq(true)
+    expect(json[:data][:attributes][:restaurant].keys.include?(:address)).to eq(true)
   end
 end

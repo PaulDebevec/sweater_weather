@@ -1,4 +1,4 @@
-class DestinationService
+class TravelService
   def self.get_dest_info(start, destination)
     request = conn.get('/maps/api/directions/json?') do |r|
       r.params['origin'] = start
@@ -7,7 +7,6 @@ class DestinationService
       r.params['key'] = ENV['GEOLOC_API_KEY']
     end
     json = JSON.parse(request.body, symbolize_names: true)
-    # travel_time = json[:routes][0][:legs][0][:duration]
   end
 
   private

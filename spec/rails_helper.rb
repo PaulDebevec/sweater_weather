@@ -25,7 +25,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.allow_http_connections_when_no_cassette = true
   config.filter_sensitive_data('<WEATHER-API-KEY>') {ENV['WEATHER_API_KEY']}
-  config.filter_sensitive_data('<GEO-LOC-API-KEY>') {ENV['GEOLOC_API_KEY']}
+  config.filter_sensitive_data('<GOOGLE_API_KEY>') {ENV['GOOGLE_API_KEY']}
   config.filter_sensitive_data('<UNSPLASH-API-KEY>') {ENV['UNSPLASH_API_KEY']}
   config.filter_sensitive_data('<UNSPLASH-SECRET>') {ENV['UNSPLASH_SECRET']}
 end

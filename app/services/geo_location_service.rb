@@ -3,7 +3,7 @@ class GeoLocationService
   def self.get_coords(loc)
     request = conn.get('/maps/api/geocode/json?') do |r|
       r.params['address'] = loc
-      r.params['key'] = ENV['GEOLOC_API_KEY']
+      r.params['key'] = ENV['GOOGLE_API_KEY']
     end
     json = JSON.parse(request.body, symbolize_names: true)
     json[:results][0][:geometry][:location]

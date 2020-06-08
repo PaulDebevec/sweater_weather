@@ -45,4 +45,16 @@ RSpec.describe 'Registration Endpoint' do
     expect(response.status).to eq(400)
     expect(json[:errors]).to eq("Password confirmation doesn't match Password")
   end
+
+  it 'sends a failed 400 message if a field is missing user input' do
+    user_params = {'password' => 'password',
+                   'password_confirmation' => 'password'}
+
+    post '/api/v1/users', params: {user: user_params}
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response).not_to be_successful
+    expect(response.status).to eq(400)
+    expect(json[:errors]).to eq("Email can't be blank")
+  end
 end

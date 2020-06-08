@@ -1,9 +1,17 @@
 class DestinationInfo
   # attr_reader :end_location, :travel_time, :forecast, :restaurant, :id
 
-  def initialize(destination, restaurant)
-    @end_location = DestinationWeather.new(destination)
+  def initialize(restaurant_info, travel_info, weather)
+    # @end_location = DestinationWeather.new(destination)
+    require "pry"; binding.pry
+    @end_location = travel_info[:end_address]
+    @travel_time = travel_info[:duration][:text]
+    @forecast = {summary: weather[:current][:weather][0][:description], temperature: weather[:current][:temp]
+    @restaurant =
     @destination_restaurant = DestinationRestaurant.new(restaurant)
+
+    destination_forecast = ForecastInfo.new(weather, params[:location])
+    require "pry"; binding.pry
   end
 end
 

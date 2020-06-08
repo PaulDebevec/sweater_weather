@@ -13,6 +13,7 @@ RSpec.describe 'Registration Endpoint' do
     expect(response.status).to eq(201)
     json = JSON.parse(response.body, symbolize_names: true)
     expect(user.email).to eq(json[:data][:attributes][:email])
+    expect(json[:data][:type]).to eq('users')
     expect(user.api_key).to be_truthy
     expect(user.password_digest).to be_truthy
   end

@@ -7,6 +7,7 @@ class TravelService
       r.params['key'] = ENV['GEOLOC_API_KEY']
     end
     json = JSON.parse(request.body, symbolize_names: true)
+    json[:routes][0][:legs][0]
   end
 
   private

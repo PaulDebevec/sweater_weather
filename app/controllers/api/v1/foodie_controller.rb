@@ -6,5 +6,6 @@ class Api::V1::FoodieController < ApplicationController
     weather = OpenWeatherService.get_weather(lat, lng)
     restaurant_info = RestaurantService.get_restaurant(params['search'], lat, lng)
     destination_info = DestinationInfo.new(restaurant_info, travel_info, weather)
+    render json: DestinationInfoSerializer.new(destination_info)
   end
 end

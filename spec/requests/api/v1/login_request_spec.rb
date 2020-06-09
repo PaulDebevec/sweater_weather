@@ -18,4 +18,19 @@ RSpec.describe 'User Login Endpoint Request' do
     expect(json[:data][:attributes].keys.include?(:email)).to eq(true)
     expect(json[:data][:attributes].keys.include?(:api_key)).to eq(true)
   end
+
+  it 'Incorrect login credentials return 400 error message', :vcr do
+    user = User.create( email: 'whatever@example.com',
+                        password: 'password',
+                        api_key: 'jij342lmk1oj5klj234KNLMn34kmKM436')
+
+    post '/api/v1/sessions', params: {email: user.email,
+                                      password: 'incorrectPassword'}
+
+    expect(response).not_to be_successful
+    expect(response.status).to eq(400)
+    json = JSON.parse(response.body, symbolize_names: true)
+
+    expect(json[:error]).to eq('Incorrect email or password')
+  end
 end

@@ -1,3 +1,16 @@
+require 'rails_helper'
+
+RSpec.describe 'Road Trip request' do
+  it 'with valid api_key returns the trip details', :vcr do
+    trip_params = { "origin": "Denver,CO",
+                    "destination": "Pueblo,CO",
+                    "api_key": "jgn983hy48thw9begh98h4539h4"}
+    post '/api/v1/road_trip', body: trip_params
+
+    expect(response.status).to eq(200) 
+  end
+end
+
 # REQUEST
 # POST /api/v1/road_trip
 # Content-Type: application/json
@@ -10,7 +23,6 @@
 #   "api_key": "jgn983hy48thw9begh98h4539h4"}
 
 # RESPONSE
-
 # status: 200
 # body:
 # {

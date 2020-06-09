@@ -5,9 +5,9 @@ RSpec.describe 'Road Trip request' do
     trip_params = { "origin": "Denver,CO",
                     "destination": "Pueblo,CO",
                     "api_key": "jgn983hy48thw9begh98h4539h4"}
-    post '/api/v1/road_trip', body: trip_params
+    post '/api/v1/road_trip', params: trip_params
 
-    expect(response.status).to eq(200) 
+    expect(response.status).to eq(200)
   end
 end
 

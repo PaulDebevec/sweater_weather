@@ -12,7 +12,6 @@ class WeeklyForecast
         temp_high: day[:temp][:max],
         temp_low: day[:temp][:min]
       }
-
     end
     notes_by_day
   end

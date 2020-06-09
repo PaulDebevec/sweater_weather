@@ -7,8 +7,7 @@ class TodayHourly
   def format_weather(weather)
     hourly = weather[:hourly][0..7].map do |h|
       { time: format_time(weather[:timezone_offset], h[:dt]),
-        temp: h[:temp]
-      }
+        temp: h[:temp] }
     end
     hourly
   end

@@ -4,7 +4,6 @@ class TodayForecast
   def initialize(weather, location)
     current = weather[:current]
     @hourly_weather = TodayHourly.new(weather)
-
     @description = current[:weather].first[:description]
     @location = format_location(location)
     @temp_average = weather[:daily].first[:temp][:day]
@@ -20,6 +19,7 @@ class TodayForecast
 
 private
   def meters_to_miles(meters)
+    return 'n/a' if meters.nil?
     (meters * 0.000621371).round
   end
 

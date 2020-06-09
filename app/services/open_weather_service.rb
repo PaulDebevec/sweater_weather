@@ -1,7 +1,12 @@
 class OpenWeatherService
   def self.get_weather(lat, lon)
-    params = "?lat=#{lat}&lon=#{lon}&exclude=minutely&units=imperial&appid=#{ENV['WEATHER_API_KEY']}"
-    request = conn.get("/data/2.5/onecall#{params}")
+    request = conn.get('/data/2.5/onecall') do |r|
+      r.params['lat'] = lat
+      r.params['lon'] = lon
+      r.params['exclude'] = 'minutely'
+      r.params['units'] = 'imperial'
+      r.params['appid'] = ENV['WEATHER_API_KEY']
+    end
     JSON.parse(request.body, symbolize_names: true)
   end
 

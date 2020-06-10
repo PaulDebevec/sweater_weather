@@ -33,6 +33,7 @@ Sweater Weather is a Ruby on Rails API built to provide data to the frontend. We
 - Rails: 6.0.3
 - Bcrypt (password encryption)
 - fast_jsonapi
+
 ***Testing framework***
 - RSpec
 - Capybara
@@ -74,11 +75,6 @@ UNSPLASH_SECRET: <YOUR UNSPLASH SECRET>
 
 ZOMATO_API_KEY: <YOUR ZOMATO API KEY>
 ```
-6. Add your keys to your app on Heroku 
-
-```sh
-figaro heroku:set -e production
-```
 
 ### Testing
 
@@ -116,7 +112,7 @@ end
 rspec
 ```
 
-## Sweater Weather Access Points 
+## Sweater Weather Endpoints
 
 Retrieve a background picture for a specific location:
 ```sh

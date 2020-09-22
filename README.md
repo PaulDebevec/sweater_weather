@@ -11,7 +11,7 @@ Sweater Weather is the final solo project for Turing School's Mod 3. The purpose
 * [Getting Started](#getting-started)
   * [Installation](#installation)
   * [Testing](#testing)
-* [Sweater Weather Access Points](#sweater-weather-access-points)
+* [Sweater Weather Access Points](#sweater-weather-endpoints)
 
 ## About
 
